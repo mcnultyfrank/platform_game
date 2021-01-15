@@ -38,7 +38,7 @@
                         playerIcon.style.transform += `translateX(-${1}vw)`;
                     }
                     else if(keys['right']) {
-                        playerIcon.style.transform += `translateX(${0.1}vw)`;
+                        playerIcon.style.transform += `translateX(${3}vw)`;
                     }
                     else if(keys['up']) {
                         playerIcon.style.transform += `translateY(-${10}px)`;
@@ -46,11 +46,9 @@
                 }
                 const randomPlatformLengthsOnRender = () => {
                      platformLength = [Math.floor(Math.random() * 10) + 9, Math.floor(Math.random() * 10) + 9, Math.floor(Math.random() * 10) + 9, Math.floor(Math.random() * 10) + 9,Math.floor(Math.random() * 10) + 7 ];
-                    platform[0].style.width = `${platformLength[0]}` + 'vw';
-                    platform[1].style.width = `${platformLength[1]}` + 'vw';
-                    platform[2].style.width = `${platformLength[2]}` + 'vw';
-                    platform[3].style.width = `${platformLength[3]}` + 'vw';
-                    platform[4].style.width = `${platformLength[4]}` + 'vw';
+                    for (let i = 0; i < platform.length; i++) {
+                        platform[i].style.width = `${platformLength[i]}` + 'vw';                        
+                    }
                 }
                 const checkIfOffScreen = () => {
                     if (playerIcon.getBoundingClientRect().width > 25 && playerIcon.getBoundingClientRect().x > 1275) {
@@ -59,17 +57,7 @@
                     }
                 }
                 const checkIfDead = () => {
-                    if (playerIcon.getBoundingClientRect().right - 20 < platform[0].getBoundingClientRect().left || playerIcon.getBoundingClientRect().left - 15 > platform[0].getBoundingClientRect().right
-                        // || playerIcon.getBoundingClientRect().right - 10 < platform[2].getBoundingClientRect().left || playerIcon.getBoundingClientRect().left - 15 > platform[2].getBoundingClientRect().right
-                        // || playerIcon.getBoundingClientRect().right - 10 < platform[3].getBoundingClientRect().left || playerIcon.getBoundingClientRect().left - 15 > platform[3].getBoundingClientRect().right
-                        // || playerIcon.getBoundingClientRect().right - 10 < platform[4].getBoundingClientRect().left || playerIcon.getBoundingClientRect().left - 15 > platform[4].getBoundingClientRect().right
-                        // || playerIcon.getBoundingClientRect().right - 10 < platform[0].getBoundingClientRect().left || playerIcon.getBoundingClientRect().left - 15 > platform[0].getBoundingClientRect().right
-                        ) 
-                        {
-                                alert('')
-                                keys['right'] = false;
-
-                        }
+                    // if (playerIcon.getBoundingClientRect().right - 20 < platform[0].getBoundingClientRect().left || playerIcon.getBoundingClientRect().left - 15 > platform[0].getBoundingClientRect().right)
                 }
 
                 randomPlatformLengthsOnRender();
